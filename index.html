@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0056)file:///C:/Users/xiaor/Downloads/homepage-preview_4.html -->
+<!-- saved from url=(0056)file:///C:/Users/xiaor/Downloads/homepage-preview_6.html -->
 <html lang="en" data-theme="blue" class="awake"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <link rel="icon" type="image/svg+xml" href="file:///C:/Users/xiaor/Downloads/favicon.svg">
@@ -32,7 +32,7 @@
   .signature{font-family:'Caveat', cursive;}
 
   .lang-switch{
-    position:fixed; top:16px; right:110px; z-index:50;
+    position:fixed; top:16px; right:16px; z-index:50;
     display:flex; gap:0; background:var(--surface);
     border:1px solid var(--border); border-radius:20px; overflow:hidden;
     font-family:'IBM Plex Mono', monospace; font-size:12px;
@@ -47,19 +47,6 @@
   html[lang="zh"] .en{display:none;}
   html[lang="zh"] .zh{display:revert;}
 
-  .theme-switch{
-    position:fixed; top:16px; right:16px; z-index:50;
-    display:flex; gap:6px; background:var(--surface);
-    border:1px solid var(--border); border-radius:20px; padding:5px;
-  }
-  .theme-switch button{
-    width:26px; height:26px; border-radius:50%; border:1px solid var(--border);
-    cursor:pointer; padding:0;
-  }
-  .theme-switch button[data-t="white"]{background:#FFFFFF;}
-  .theme-switch button[data-t="ivory"]{background:#EFE9D8;}
-  .theme-switch button[data-t="blue"]{background:#EDF1F3;}
-  .theme-switch button.active{outline:2px solid var(--accent); outline-offset:2px;}
 
   .wrap{max-width:900px; margin:0 auto; padding:0 24px;}
 
@@ -151,11 +138,6 @@
   <button id="btnZh" onclick="setLang(&#39;zh&#39;)">中</button>
 </div>
 
-<div class="theme-switch">
-  <button data-t="white" title="Clinical white"></button>
-  <button data-t="ivory" title="Paper ivory"></button>
-  <button data-t="blue" class="active" title="Monitor blue"></button>
-</div>
 
 <nav>
   <div class="wrap mono">
@@ -282,13 +264,6 @@ function startBeating(){
 window.addEventListener('mousemove', startBeating, {once:true});
 window.addEventListener('touchstart', startBeating, {once:true});
 
-document.querySelectorAll('.theme-switch button').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    document.documentElement.setAttribute('data-theme', btn.dataset.t);
-    document.querySelectorAll('.theme-switch button').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-  });
-});
 </script>
 
 
