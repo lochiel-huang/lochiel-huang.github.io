@@ -44,10 +44,30 @@
   .rx-sign .date{font-size:11px; color:var(--text-2); letter-spacing:0.05em;}
 
   footer{text-align:center; font-size:12px; color:var(--text-2); margin-top:32px;}
+
+  .lang-switch{
+    position:fixed; top:16px; right:16px; z-index:50;
+    display:flex; background:var(--surface);
+    border:1px solid var(--border); border-radius:20px; overflow:hidden;
+    font-family:'IBM Plex Mono', monospace; font-size:12px;
+  }
+  .lang-switch button{
+    border:none; background:transparent; color:var(--text-2);
+    padding:6px 12px; cursor:pointer;
+  }
+  .lang-switch button.active{background:var(--text); color:var(--bg);}
+  .lang-switch button:first-child{border-right:1px solid var(--border);}
+  .zh{display:none;}
+  html[lang="zh"] .en{display:none;}
+  html[lang="zh"] .zh{display:revert;}
 </style>
 </head>
 <body>
 
+<div class="lang-switch">
+  <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
+  <button id="btnZh" onclick="setLang('zh')">中</button>
+</div>
 <nav>
   <div class="wrap">
     <div class="brand mono">CASE NO. 2026-0710</div>
@@ -72,11 +92,12 @@
     <div class="rx-body">
       <div class="rx-line"><div class="k mono">EMAIL</div><div class="v"><a href="mailto:lochielhuang@gmail.com">lochielhuang@gmail.com</a></div></div>
       <div class="rx-line"><div class="k mono">LINKEDIN</div><div class="v"><a href="https://linkedin.com/in/lochiel-huang-7543232a2" target="_blank" rel="noopener">linkedin.com/in/lochiel-huang</a></div></div>
-      <div class="rx-line"><div class="k mono">BASED IN</div><div class="v">Hong Kong · open to remote &amp; video calls</div></div>
-      <div class="rx-line"><div class="k mono">RESPONDS IN</div><div class="v">English · Mandarin · Cantonese</div></div>
+      <div class="rx-line"><div class="k mono"><span class="en">BASED IN</span><span class="zh">所在地</span></div><div class="v"><span class="en">Hong Kong · open to remote &amp; video calls</span><span class="zh">香港 · 接受遠端及視訊會面</span></div></div>
+      <div class="rx-line"><div class="k mono"><span class="en">RESPONDS IN</span><span class="zh">溝通語言</span></div><div class="v">English · Mandarin · Cantonese</div></div>
 
       <div class="rx-note">
-        <b>Rx:</b> One 30-minute conversation, taken as needed. Suitable for research collaboration, internship enquiries, admissions discussions, or a good question I haven't heard yet. Possible side effects include: a new perspective on financial reconciliation, and an unshakeable interest in what sticky notes are actually for.
+        <span class="en"><b>Rx:</b> One 30-minute conversation, taken as needed. Suitable for research collaboration, internship enquiries, admissions discussions, or a good question I haven't heard yet. Possible side effects include: a new perspective on financial reconciliation, and an unshakeable interest in what sticky notes are actually for.</span>
+        <span class="zh"><b>醫囑：</b>建議劑量：一次 30 分鐘的對話，按需服用。適用於研究合作、實習詢問、申請討論，或任何我還沒聽過的好問題。副作用可能包括：對財務對帳產生新的看法，以及對便利貼的真正用途產生難以消除的執念。</span>
       </div>
 
       <div class="rx-sign">
@@ -88,5 +109,12 @@
 
   <footer class="mono">END OF CHART</footer>
 </div>
+<script>
+function setLang(lang){
+  document.documentElement.lang = lang;
+  document.getElementById('btnEn').classList.toggle('active', lang==='en');
+  document.getElementById('btnZh').classList.toggle('active', lang==='zh');
+}
+</script>
 </body>
 </html>

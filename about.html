@@ -9,104 +9,121 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 <style>
-  :root[data-theme="white"]{--bg:#FFFFFF; --surface:#F7F7F5; --text:#1A1A18; --text-2:#5C5C58; --border:#2C2C2A; --accent:#B3312C; --accent-soft:#F3DEDB;}
-  :root[data-theme="ivory"]{--bg:#EFE9D8; --surface:#F7F3E7; --text:#3A342A; --text-2:#6B6152; --border:#4A4436; --accent:#9E2B25; --accent-soft:#E8D2CE;}
-  :root[data-theme="blue"]{--bg:#EDF1F3; --surface:#FFFFFF; --text:#1E2A32; --text-2:#51636E; --border:#3D4F5C; --accent:#B3312C; --accent-soft:#F3DEDB;}
-  *{box-sizing:border-box; margin:0; padding:0;}
-  body{background:var(--bg); color:var(--text); font-family:'Newsreader', serif; padding-bottom:60px;}
-  .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em;}
-  .signature{font-family:'Caveat', cursive;}
-  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
-
-  nav{border-bottom:1px solid var(--border); padding:16px 0;}
-  nav .wrap{display:flex; justify-content:space-between; align-items:center;}
-  nav .brand{font-size:13px;}
-  nav .links{display:flex; gap:22px; font-size:13px;}
-  nav a{color:var(--text-2); text-decoration:none;}
-  nav a.current{color:var(--accent); border-bottom:1px solid var(--accent); padding-bottom:2px;}
-
-  header.head{padding:48px 0 24px; border-bottom:1px solid var(--border);}
-  .eyebrow{font-size:12px; color:var(--accent); margin-bottom:12px; display:flex; align-items:center; gap:8px;}
-  .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--accent); animation:pulse-dot 1.6s infinite;}
-  @keyframes pulse-dot{0%,100%{opacity:1;} 50%{opacity:.3;}}
-  h1{font-size:38px; font-weight:600;}
-  header.head p{margin-top:12px; color:var(--text-2); font-size:16px; max-width:540px; line-height:1.6;}
-
-  .record{padding:32px 0; border-bottom:1px solid var(--border);}
+  :root[data-theme="white"]{--bg:#FFFFFF;--surface:#F7F7F5;--text:#1A1A18;--text-2:#5C5C58;--border:#2C2C2A;--accent:#B3312C;--accent-soft:#F3DEDB;}
+  :root[data-theme="ivory"]{--bg:#EFE9D8;--surface:#F7F3E7;--text:#3A342A;--text-2:#6B6152;--border:#4A4436;--accent:#9E2B25;--accent-soft:#E8D2CE;}
+  :root[data-theme="blue"]{--bg:#EDF1F3;--surface:#FFFFFF;--text:#1E2A32;--text-2:#51636E;--border:#3D4F5C;--accent:#B3312C;--accent-soft:#F3DEDB;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Newsreader',serif;padding-bottom:60px;}
+  .mono{font-family:'IBM Plex Mono',monospace;letter-spacing:0.02em;}
+  .signature{font-family:'Caveat',cursive;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  nav{border-bottom:1px solid var(--border);padding:16px 0;}
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;}
+  nav a{color:var(--text-2);text-decoration:none;}
+  nav a.current{color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:2px;}
+  nav .links{display:flex;gap:22px;font-size:13px;}
+  header.head{padding:48px 0 24px;border-bottom:1px solid var(--border);}
+  .eyebrow{font-size:12px;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse-dot 1.6s infinite;}
+  @keyframes pulse-dot{0%,100%{opacity:1;}50%{opacity:.3;}}
+  h1{font-size:38px;font-weight:600;}
+  header.head p{margin-top:12px;color:var(--text-2);font-size:16px;max-width:540px;line-height:1.6;}
+  .record{padding:32px 0;border-bottom:1px solid var(--border);}
   .record:last-child{border-bottom:none;}
-  .record .tag{font-size:11px; color:var(--accent); text-transform:uppercase; margin-bottom:12px; display:flex; align-items:center; gap:8px;}
-  .record .tag::after{content:''; flex:1; height:1px; background:var(--border);}
-  .record h2{font-size:22px; font-weight:600; margin-bottom:14px;}
-  .record p{font-size:16px; line-height:1.85; color:var(--text); margin-bottom:12px;}
+  .record .tag{font-size:11px;color:var(--accent);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .record .tag::after{content:'';flex:1;height:1px;background:var(--border);}
+  .record h2{font-size:22px;font-weight:600;margin-bottom:14px;}
+  .record p{font-size:16px;line-height:1.85;color:var(--text);margin-bottom:12px;}
   .record p:last-child{margin-bottom:0;}
-
-  .facts-row{display:flex; gap:1px; background:var(--border); border:1px solid var(--border); margin:32px 0;}
-  .facts-row div{flex:1; background:var(--surface); padding:16px; text-align:center;}
-  .facts-row .k{font-size:11px; color:var(--text-2); text-transform:uppercase;}
-  .facts-row .v{font-size:15px; margin-top:6px; font-weight:500;}
-
-  .quote-block{margin-top:14px; padding:18px 22px; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--accent);}
-  .quote-block p{font-style:italic; font-size:15px;}
-  .quote-block .who{margin-top:10px; font-size:14px; color:var(--accent);}
-
-  footer{border-top:1px solid var(--border); padding-top:20px; margin-top:32px; font-size:12px; color:var(--text-2); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+  .facts-row{display:flex;gap:1px;background:var(--border);border:1px solid var(--border);margin:32px 0;}
+  .facts-row div{flex:1;background:var(--surface);padding:16px;text-align:center;}
+  .facts-row .k{font-size:11px;color:var(--text-2);text-transform:uppercase;}
+  .facts-row .v{font-size:15px;margin-top:6px;font-weight:500;}
+  .quote-block{margin-top:14px;padding:18px 22px;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);}
+  .quote-block p{font-style:italic;font-size:15px;}
+  .quote-block .who{margin-top:10px;font-size:14px;color:var(--accent);}
+  footer{border-top:1px solid var(--border);padding-top:20px;margin-top:32px;font-size:12px;color:var(--text-2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .lang-switch{position:fixed;top:16px;right:16px;z-index:50;display:flex;background:var(--surface);border:1px solid var(--border);border-radius:20px;overflow:hidden;font-family:'IBM Plex Mono',monospace;font-size:12px;}
+  .lang-switch button{border:none;background:transparent;color:var(--text-2);padding:6px 12px;cursor:pointer;}
+  .lang-switch button.active{background:var(--text);color:var(--bg);}
+  .lang-switch button:first-child{border-right:1px solid var(--border);}
+  .zh{display:none;}
+  html[lang="zh"] .en{display:none;}
+  html[lang="zh"] .zh{display:revert;}
 </style>
 </head>
 <body>
+
+<div class="lang-switch">
+  <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
+  <button id="btnZh" onclick="setLang('zh')">中</button>
+</div>
 
 <nav>
   <div class="wrap">
     <div class="brand mono">CASE NO. 2026-0710</div>
     <div class="links mono">
-      <a href="index.html">Chart</a>
-      <a href="about.html" class="current">History</a>
-      <a href="portfolio.html">Case Log</a>
-      <a href="contact.html">Referral</a>
+      <a href="index.html"><span class="en">Chart</span><span class="zh">概覽</span></a>
+      <a href="about.html" class="current"><span class="en">History</span><span class="zh">病史</span></a>
+      <a href="portfolio.html"><span class="en">Case Log</span><span class="zh">案例</span></a>
+      <a href="contact.html"><span class="en">Referral</span><span class="zh">聯絡</span></a>
     </div>
   </div>
 </nav>
 
 <div class="wrap">
-
   <header class="head">
-    <div class="eyebrow mono"><span class="dot"></span>MEDICAL HISTORY</div>
-    <h1>The making of a curious observer</h1>
-    <p>A structured record — what I care about, what changed me, and what I'm still trying to figure out.</p>
+    <div class="eyebrow mono"><span class="dot"></span><span class="en">MEDICAL HISTORY</span><span class="zh">病史</span></div>
+    <h1><span class="en">The making of a curious observer</span><span class="zh">一個好奇者的養成記錄</span></h1>
+    <p class="en">A structured record — what I care about, what changed me, and what I'm still trying to figure out.</p>
+    <p class="zh">一份結構化的記錄——我在乎什麼、什麼改變了我，以及我還在想清楚的事。</p>
   </header>
 
   <section class="record">
-    <div class="tag mono">Chief Complaint</div>
-    <p>A conflict of interest buried in a compliance opinion. A position that just crossed the intraday risk threshold. The one line in the financial statements that doesn't reconcile. Or someone whose words and actions simply don't match.</p>
-    <p>Whenever something is <em>inconsistent</em>, my first instinct is to open a document and start typing.</p>
-    <p>Analysis is how I make sense of things. Which is probably why I feel at home in compliance and risk — those are the environments where systems are formally required to explain themselves.</p>
+    <div class="tag mono"><span class="en">Chief Complaint</span><span class="zh">主訴</span></div>
+    <p class="en">A conflict of interest buried in a compliance opinion. A position that just crossed the intraday risk threshold. The one line in the financial statements that doesn't reconcile. Or someone whose words and actions simply don't match.</p>
+    <p class="zh">合規意見書裡的利益衝突、剛超過風控閾值的持倉、財務報表對不上的那一行，甚至一個人的言行不一致。</p>
+    <p class="en">Whenever something is <em>inconsistent</em>, my first instinct is to open a document and start typing.</p>
+    <p class="zh">每當這些「前後不一」出現，我的第一反應是打開電腦開始記錄。</p>
+    <p class="en">Analysis is how I make sense of things. Which is probably why I feel at home in compliance and risk — those are the environments where systems are formally required to explain themselves.</p>
+    <p class="zh">分析，是我理解問題的方式。這大概也是為什麼我在合規和風控的環境裡很舒服——那裡恰好是系統被要求「解釋自己」的地方。</p>
   </section>
 
   <section class="record">
-    <div class="tag mono">History of Present Illness</div>
-    <p>During my compliance internship at a securities firm, Personal Account Dealing (PAD) control gave me a mild headache. Every employee trade — what they bought, how many shares, whether it was a regular purchase or an IPO subscription, whether they'd closed the position — had to be filed manually, line by line.</p>
-    <p>I was an intern who'd been there a few days. How was I supposed to know what counted as compliant? I left a lot of fields blank, and knocked on my mentor's door more than once.</p>
-    <p>But the underlying logic isn't complicated: whitelist stock, not an IPO, position under the threshold → auto-approve. Exception or breach → flag for human review, escalate to mentor, get the department head's signature, file it back. That decision tree is exactly what an AI agent is built for. You save time, yes — but more importantly, you remove the part where a confused intern introduces errors.</p>
-    <p>Bloomberg Terminal, to its credit, already works this way on the market-risk side. Every afternoon around four, a few button clicks, data exports automatically. Anything breaching a risk limit turns red; management sees red and decides whether to call an emergency meeting. No breach — the updated Excel goes straight into the daily report. Done.</p>
-    <p>I think the rest of the compliance workflow should be able to reach the same standard. Though of course, compliance is sensitive — <em>which</em> parts can safely run on an AI agent, and which ones need a human watching every step, is itself an interesting question.</p>
+    <div class="tag mono"><span class="en">History of Present Illness</span><span class="zh">現病史</span></div>
+    <p class="en">During my compliance internship at a securities firm, Personal Account Dealing (PAD) control gave me a mild headache. Every employee trade — what they bought, how many shares, whether it was a regular purchase or an IPO subscription, whether they'd closed the position — had to be filed manually, line by line.</p>
+    <p class="zh">在證券公司的合規實習裡，個人帳戶交易審查（PAD control）有時真讓我有點頭疼。每個員工的交易——買什麼、多少股、是普通買賣還是 IPO 認購、有沒有平倉——都要人工逐筆填報。</p>
+    <p class="en">I was an intern who'd been there a few days. How was I supposed to know what counted as compliant? I left a lot of fields blank, and knocked on my mentor's door more than once.</p>
+    <p class="zh">我當時只是個來了幾天的實習生，怎麼填才合規？很多欄我只能空著，或者一遍遍敲敲 mentor 的門。</p>
+    <p class="en">But the underlying logic isn't complicated: whitelist stock, not an IPO, position under the threshold → auto-approve. Exception or breach → flag for human review, escalate to mentor, get the department head's signature, file it back. That decision tree is exactly what an AI agent is built for.</p>
+    <p class="zh">但其實邏輯並不複雜：白名單股票、不是 IPO、持倉低於閾值 → 自動審核；超過閾值或有例外 → 觸發人工複核，上報 mentor，部門主管簽字回傳。這個判斷流程交給 AI agent 完全可以處理。</p>
+    <p class="en">Bloomberg Terminal, to its credit, already works this way on the market-risk side. Every afternoon around four, a few button clicks, data exports automatically. Anything breaching a risk limit turns red; management sees red and decides whether to call an emergency meeting.</p>
+    <p class="zh">Bloomberg Terminal 那邊其實已經做到了這種感覺——每天下午四點多，幾個按鈕、數據自動導出，超過風控線的自動標紅，管理層直接看紅色決定要不要緊急開會。</p>
+    <p class="en">I think the rest of the compliance workflow should be able to reach the same standard. Though of course, compliance is sensitive — <em>which</em> parts can safely run on an AI agent, and which ones need a human watching every step, is itself an interesting question.</p>
+    <p class="zh">我認為合規審查的其他環節，理應也能做到這個程度。當然，合規是很敏感的——哪些能用 AI agent，哪些必須靠人嚴防死守，也耐人尋味。</p>
   </section>
 
   <section class="record">
-    <div class="tag mono">Past Medical History</div>
-    <p><b>2024 — Learning to act.</b> In high school I was good at overthinking and not great at doing — partly because I cared too much about what other people thought, and kept myself small as a result. What changed me was a content creator called Marcsims. One line stuck: <em>thinking is supposed to serve action.</em> A month later I sat the IELTS (7.0), then immediately wrote to three universities to ask about transferring. I used to be the kind of person who waited until everything was ready. I'm less like that now.</p>
-    <p><b>2025 — Learning to look outward.</b> I started going to events I would have avoided before. At one dinner, I ended up in a long conversation with a PhD student in international relations. The thing he said that I still repeat to myself: every piece of advice was shaped by a very specific life — apply it to yourself directly and you're borrowing someone else's map. That changed how I read case studies, how I read the news, and honestly how I read myself.</p>
-    <p>Neither of these has fully resolved — I still overthink, I still hesitate. But I can usually recognise the pattern now, which is most of the work.</p>
+    <div class="tag mono"><span class="en">Past Medical History</span><span class="zh">既往病史</span></div>
+    <p class="en"><b>2024 — Learning to act.</b> In high school I was good at overthinking and not great at doing — partly because I cared too much about what other people thought, and kept myself small as a result. What changed me was a content creator called Marcsims. One line stuck: <em>thinking is supposed to serve action.</em> A month later I sat the IELTS (7.0), then immediately wrote to three universities to ask about transferring. I used to be the kind of person who waited until everything was ready. I'm less like that now.</p>
+    <p class="zh"><b>2024 年——學會動手。</b>高中的我很擅長想太多，不太擅長去做——部分原因是太在乎別人的眼光，讓自己縮起來。改變我的是一個叫 Marcsims 的創作者。有一句話一直留在我腦子裡：<em>想，是為了做服務的。</em>一個月後我考了雅思（7.0），然後馬上寫信給三所大學問轉學的事。我以前是那種等到一切準備好再說的人，現在不太一樣了。</p>
+    <p class="en"><b>2025 — Learning to look outward.</b> I started going to events I would have avoided before. At one dinner, I ended up in a long conversation with a PhD student in international relations. The thing he said that I still repeat to myself: every piece of advice was shaped by a very specific life — apply it to yourself directly and you're borrowing someone else's map. That changed how I read case studies, how I read the news, and honestly how I read myself.</p>
+    <p class="zh"><b>2025 年——學會往外看。</b>我開始去以前不會去的活動。在一個飯局上，我和一個讀國際關係博士的人聊了很久。他說的一句話我現在還常常想起來：每個建議都是從某個很具體的人生裡長出來的，直接套用在自己身上其實是在借別人的地圖走路。這改變了我看案例、看新聞，甚至看自己的方式。</p>
+    <p class="en">Neither of these has fully resolved — I still overthink, I still hesitate. But I can usually recognise the pattern now, which is most of the work.</p>
+    <p class="zh">這兩件事都還沒有完全「痊癒」——我還是會想太多，還是會猶豫。但現在我通常能認出那個模式，這已經是大半的工作了。</p>
   </section>
 
   <div class="facts-row mono">
-    <div><div class="k">School</div><div class="v">HKMU</div></div>
-    <div><div class="k">Major</div><div class="v">Finance &amp; FinTech</div></div>
-    <div><div class="k">Study tours</div><div class="v">Berlin · Beijing</div></div>
-    <div><div class="k">Volunteer</div><div class="v">MindHK</div></div>
+    <div><div class="k"><span class="en">School</span><span class="zh">學校</span></div><div class="v">HKMU</div></div>
+    <div><div class="k"><span class="en">Major</span><span class="zh">科系</span></div><div class="v"><span class="en">Finance &amp; FinTech</span><span class="zh">金融科技</span></div></div>
+    <div><div class="k"><span class="en">Study tours</span><span class="zh">遊學</span></div><div class="v">Berlin · Beijing</div></div>
+    <div><div class="k"><span class="en">Volunteer</span><span class="zh">義工</span></div><div class="v">MindHK</div></div>
   </div>
 
   <section class="record">
-    <div class="tag mono">Consult Notes</div>
-    <p>A recent professor, after our final class, told me he was grateful for the way I engaged in his sessions. I mention this not as a credential but because it captured something I wasn't sure I could sustain: I used to see class participation as risky exposure. It now feels like the fastest way to test whether what I think I understand actually holds up.</p>
+    <div class="tag mono"><span class="en">Consult Notes</span><span class="zh">會診記錄</span></div>
+    <p class="en">A recent professor, after our final class, told me he was grateful for the way I engaged in his sessions. I mention this not as a credential but because it captured something I wasn't sure I could sustain: I used to see class participation as risky exposure. It now feels like the fastest way to test whether what I think I understand actually holds up.</p>
+    <p class="zh">一位教授在最後一堂課後告訴我，他很感謝我在課堂上的投入方式。我提到這件事不是為了當作一個資歷，而是因為它捕捉到了一件我不確定自己能否持續做到的事：我以前覺得課堂發言是一種有風險的曝露。現在我覺得那是最快驗證自己理解是否正確的方式。</p>
     <div class="quote-block">
       <p>"If you need any referee, feel free to ask me."</p>
       <div class="who signature">— Course instructor, HKMU (May 2026)</div>
@@ -114,17 +131,27 @@
   </section>
 
   <section class="record">
-    <div class="tag mono">Treatment Plan &amp; Prognosis</div>
-    <p><b>Short term:</b> apply to MSc programmes in AI, FinTech, or Business Analytics — specifically ones that sit at the intersection of AI deployment and regulatory or compliance frameworks, rather than pure technical or pure management tracks. The direction matters more than the label on the degree.</p>
-    <p><b>Working thesis:</b> most people entering AI-adjacent business roles are heading toward product management, analytics, or audit optimisation. I want to go slightly sideways — toward <em>AI compliance and RegTech</em> — because the gap between what financial reporting actually looks like on the ground and what AI can currently verify is large, growing, and not yet crowded. My AI-powered Financial Compliance Auditor prototype (see Case Log) is a first attempt to build in that direction rather than just talk about it.</p>
-    <p><b>Longer term:</b> I want to be useful in the room where the compliance team, the engineering team, and the executives who have to sign off are all talking past each other. Not by pretending to master any single one, but by being fluent enough in all three to translate.</p>
+    <div class="tag mono"><span class="en">Treatment Plan &amp; Prognosis</span><span class="zh">治療計畫與預後</span></div>
+    <p class="en"><b>Short term:</b> apply to MSc programmes in AI, FinTech, or Business Analytics — specifically ones that sit at the intersection of AI deployment and regulatory or compliance frameworks, rather than pure technical or pure management tracks. The direction matters more than the label on the degree.</p>
+    <p class="zh"><b>短期：</b>申請 AI、金融科技或商業分析相關的碩士課程——具體來說是那些站在 AI 落地與合規監管交叉點的課程，而不是純技術或純管理路線。方向比學位名稱更重要。</p>
+    <p class="en"><b>Working thesis:</b> most people entering AI-adjacent business roles are heading toward product management, analytics, or audit optimisation. I want to go slightly sideways — toward <em>AI compliance and RegTech</em> — because the gap between what financial reporting actually looks like on the ground and what AI can currently verify is large, growing, and not yet crowded.</p>
+    <p class="zh"><b>工作假設：</b>大多數進入 AI 相關商業職位的人都在往產品管理、數據分析或審計優化走。我想稍微偏一個方向——往 <em>AI 合規和 RegTech</em>——因為財務報告實際狀況和 AI 目前能驗證的東西之間，有一個很大的、還在擴大的、還沒被擠爆的缺口。</p>
+    <p class="en"><b>Longer term:</b> I want to be useful in the room where the compliance team, the engineering team, and the executives who have to sign off are all talking past each other. Not by pretending to master any single one, but by being fluent enough in all three to translate.</p>
+    <p class="zh"><b>長期：</b>我希望在合規團隊、工程團隊和需要簽字的高管都在雞同鴨講的那個房間裡派上用場。不是假裝精通任何一個領域，而是對三者都足夠熟悉，可以充當翻譯。</p>
   </section>
 
   <footer>
     <div class="mono">RECORD UPDATED 2026-07-10</div>
-    <div><a href="contact.html" class="mono" style="color:var(--text); border-bottom:1px solid var(--accent); text-decoration:none;">Open a referral →</a></div>
+    <div><a href="contact.html" class="mono" style="color:var(--text);border-bottom:1px solid var(--accent);text-decoration:none;"><span class="en">Open a referral →</span><span class="zh">開立轉診單 →</span></a></div>
   </footer>
-
 </div>
+
+<script>
+function setLang(lang){
+  document.documentElement.lang = lang;
+  document.getElementById('btnEn').classList.toggle('active', lang==='en');
+  document.getElementById('btnZh').classList.toggle('active', lang==='zh');
+}
+</script>
 </body>
 </html>

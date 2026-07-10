@@ -9,182 +9,182 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 <style>
-  :root[data-theme="white"]{--bg:#FFFFFF; --surface:#F7F7F5; --text:#1A1A18; --text-2:#5C5C58; --border:#2C2C2A; --accent:#B3312C; --accent-soft:#F3DEDB;}
-  :root[data-theme="ivory"]{--bg:#EFE9D8; --surface:#F7F3E7; --text:#3A342A; --text-2:#6B6152; --border:#4A4436; --accent:#9E2B25; --accent-soft:#E8D2CE;}
-  :root[data-theme="blue"]{--bg:#EDF1F3; --surface:#FFFFFF; --text:#1E2A32; --text-2:#51636E; --border:#3D4F5C; --accent:#B3312C; --accent-soft:#F3DEDB;}
-  *{box-sizing:border-box; margin:0; padding:0;}
-  body{background:var(--bg); color:var(--text); font-family:'Newsreader', serif; padding-bottom:60px;}
-  .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em;}
-  .wrap{max-width:900px; margin:0 auto; padding:0 24px;}
-
-  nav{border-bottom:1px solid var(--border); padding:16px 0;}
-  nav .wrap{display:flex; justify-content:space-between; align-items:center;}
-  nav .brand{font-size:13px;}
-  nav .links{display:flex; gap:22px; font-size:13px;}
-  nav a{color:var(--text-2); text-decoration:none;}
-  nav a.current{color:var(--accent); border-bottom:1px solid var(--accent); padding-bottom:2px;}
-
-  header.head{padding:48px 0 28px; border-bottom:1px solid var(--border);}
-  .eyebrow{font-size:12px; color:var(--accent); margin-bottom:12px; display:flex; align-items:center; gap:8px;}
-  .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--accent); animation:pulse-dot 1.6s infinite;}
-  @keyframes pulse-dot{0%,100%{opacity:1;} 50%{opacity:.3;}}
-  h1{font-size:38px; font-weight:600;}
-  header.head p{margin-top:12px; color:var(--text-2); font-size:16px; max-width:560px; line-height:1.6;}
-
-  .future-note{
-    margin:28px 0; padding:14px 18px; background:var(--surface); border:1px dashed var(--border);
-    font-size:13px; color:var(--text-2); display:flex; gap:12px; align-items:flex-start; line-height:1.6;
-  }
-  .future-note svg{width:20px; height:20px; flex-shrink:0; margin-top:2px; stroke:var(--accent);}
-
-  .case-major{
-    border:1px solid var(--border); background:var(--surface); margin:32px 0;
-    position:relative;
-  }
-  .case-major .tab{
-    position:absolute; top:-1px; left:24px; background:var(--accent-soft);
-    color:var(--accent); font-size:11px; padding:4px 12px; border:1px solid var(--border); border-top:none;
-  }
+  :root[data-theme="white"]{--bg:#FFFFFF;--surface:#F7F7F5;--text:#1A1A18;--text-2:#5C5C58;--border:#2C2C2A;--accent:#B3312C;--accent-soft:#F3DEDB;}
+  :root[data-theme="ivory"]{--bg:#EFE9D8;--surface:#F7F3E7;--text:#3A342A;--text-2:#6B6152;--border:#4A4436;--accent:#9E2B25;--accent-soft:#E8D2CE;}
+  :root[data-theme="blue"]{--bg:#EDF1F3;--surface:#FFFFFF;--text:#1E2A32;--text-2:#51636E;--border:#3D4F5C;--accent:#B3312C;--accent-soft:#F3DEDB;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Newsreader',serif;padding-bottom:60px;}
+  .mono{font-family:'IBM Plex Mono',monospace;letter-spacing:0.02em;}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px;}
+  nav{border-bottom:1px solid var(--border);padding:16px 0;}
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;}
+  nav a{color:var(--text-2);text-decoration:none;}
+  nav a.current{color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:2px;}
+  nav .links{display:flex;gap:22px;font-size:13px;}
+  header.head{padding:48px 0 28px;border-bottom:1px solid var(--border);}
+  .eyebrow{font-size:12px;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse-dot 1.6s infinite;}
+  @keyframes pulse-dot{0%,100%{opacity:1;}50%{opacity:.3;}}
+  h1{font-size:38px;font-weight:600;}
+  header.head p{margin-top:12px;color:var(--text-2);font-size:16px;max-width:560px;line-height:1.6;}
+  .future-note{margin:28px 0;padding:14px 18px;background:var(--surface);border:1px dashed var(--border);font-size:13px;color:var(--text-2);display:flex;gap:12px;align-items:flex-start;line-height:1.6;}
+  .future-note svg{width:20px;height:20px;flex-shrink:0;margin-top:2px;stroke:var(--accent);}
+  .case-major{border:1px solid var(--border);background:var(--surface);margin:32px 0;position:relative;}
+  .case-major .tab{position:absolute;top:-1px;left:24px;background:var(--accent-soft);color:var(--accent);font-size:11px;padding:4px 12px;border:1px solid var(--border);border-top:none;}
   .case-major .inner{padding:28px 28px 26px;}
-  .case-major h2{font-size:24px; font-weight:600; margin:20px 0 6px; line-height:1.3;}
-  .case-major .role{font-size:12px; color:var(--text-2); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:16px;}
-  .case-major .sub{font-size:12px; color:var(--accent); text-transform:uppercase; margin:18px 0 6px; letter-spacing:0.03em;}
-  .case-major p{font-size:15px; line-height:1.75; color:var(--text); margin-bottom:10px;}
-  .case-major ul{margin:6px 0 6px 18px; font-size:15px; line-height:1.75;}
-  .case-major .meta{
-    display:flex; justify-content:space-between; padding:14px 28px;
-    border-top:1px solid var(--border); font-size:11px; color:var(--text-2);
-  }
+  .case-major h2{font-size:24px;font-weight:600;margin:20px 0 6px;line-height:1.3;}
+  .case-major .role{font-size:12px;color:var(--text-2);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:16px;}
+  .case-major .sub{font-size:12px;color:var(--accent);text-transform:uppercase;margin:18px 0 6px;letter-spacing:0.03em;}
+  .case-major p{font-size:15px;line-height:1.75;color:var(--text);margin-bottom:10px;}
+  .case-major ul{margin:6px 0 6px 18px;font-size:15px;line-height:1.75;}
+  .case-major .meta{display:flex;justify-content:space-between;padding:14px 28px;border-top:1px solid var(--border);font-size:11px;color:var(--text-2);}
   .case-major .meta .status{color:var(--accent);}
-
-  .section-label{font-size:12px; color:var(--text-2); margin:40px 0 18px; display:flex; align-items:center; gap:10px; text-transform:uppercase; letter-spacing:0.05em;}
-  .section-label::after{content:''; flex:1; height:1px; background:var(--border);}
-
-  .cases-mini{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
-  .mini-card{border:1px solid var(--border); background:var(--surface); padding:16px 18px;}
-  .mini-card .role{font-size:11px; color:var(--text-2); text-transform:uppercase; letter-spacing:0.05em;}
-  .mini-card h3{font-size:16px; font-weight:600; margin:4px 0 8px;}
-  .mini-card p{font-size:13px; line-height:1.6; color:var(--text-2);}
-  .mini-card .yr{margin-top:8px; font-size:11px; color:var(--accent);}
-
-  footer{border-top:1px solid var(--border); padding-top:20px; margin-top:40px; font-size:12px; color:var(--text-2); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+  .section-label{font-size:12px;color:var(--text-2);margin:40px 0 18px;display:flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:0.05em;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  .cases-mini{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .mini-card{border:1px solid var(--border);background:var(--surface);padding:16px 18px;}
+  .mini-card .role{font-size:11px;color:var(--text-2);text-transform:uppercase;letter-spacing:0.05em;}
+  .mini-card h3{font-size:16px;font-weight:600;margin:4px 0 8px;}
+  .mini-card p{font-size:13px;line-height:1.6;color:var(--text-2);}
+  .mini-card .yr{margin-top:8px;font-size:11px;color:var(--accent);}
+  footer{border-top:1px solid var(--border);padding-top:20px;margin-top:40px;font-size:12px;color:var(--text-2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .lang-switch{position:fixed;top:16px;right:16px;z-index:50;display:flex;background:var(--surface);border:1px solid var(--border);border-radius:20px;overflow:hidden;font-family:'IBM Plex Mono',monospace;font-size:12px;}
+  .lang-switch button{border:none;background:transparent;color:var(--text-2);padding:6px 12px;cursor:pointer;}
+  .lang-switch button.active{background:var(--text);color:var(--bg);}
+  .lang-switch button:first-child{border-right:1px solid var(--border);}
+  .zh{display:none;}
+  html[lang="zh"] .en{display:none;}
+  html[lang="zh"] .zh{display:revert;}
 </style>
 </head>
 <body>
+
+<div class="lang-switch">
+  <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
+  <button id="btnZh" onclick="setLang('zh')">中</button>
+</div>
 
 <nav>
   <div class="wrap">
     <div class="brand mono">CASE NO. 2026-0710</div>
     <div class="links mono">
-      <a href="index.html">Chart</a>
-      <a href="about.html">History</a>
-      <a href="portfolio.html" class="current">Case Log</a>
-      <a href="contact.html">Referral</a>
+      <a href="index.html"><span class="en">Chart</span><span class="zh">概覽</span></a>
+      <a href="about.html"><span class="en">History</span><span class="zh">病史</span></a>
+      <a href="portfolio.html" class="current"><span class="en">Case Log</span><span class="zh">案例</span></a>
+      <a href="contact.html"><span class="en">Referral</span><span class="zh">聯絡</span></a>
     </div>
   </div>
 </nav>
 
 <div class="wrap">
-
   <header class="head">
-    <div class="eyebrow mono"><span class="dot"></span>CASE LOG</div>
-    <h1>Ongoing and documented cases</h1>
-    <p>Each case is an independent observation or intervention. Two are featured in depth; the rest are summarised below.</p>
+    <div class="eyebrow mono"><span class="dot"></span><span class="en">CASE LOG</span><span class="zh">案例紀錄</span></div>
+    <h1><span class="en">Ongoing and documented cases</span><span class="zh">進行中與已記錄的案例</span></h1>
+    <p class="en">Each case is an independent observation or intervention. Two are featured in depth; the rest are summarised below.</p>
+    <p class="zh">每個案例都是一次獨立的觀察或介入。兩個案例有深度介紹，其餘在下方摘要。</p>
   </header>
 
   <div class="future-note">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a4 4 0 0 0 8 0V3"/><path d="M18 9v2a6 6 0 0 0-12 0V9"/><circle cx="18" cy="6" r="2.4"/></svg>
-    <div>A future update will introduce a <b>stethoscope map</b>: cases distributed across a schematic figure — head for strategy, hands for execution, heart for the ones I care about most — revealed as you move the cursor. For now, the list below.</div>
+    <div class="en">A future update will introduce a <b>stethoscope map</b>: cases distributed across a schematic figure, revealed as you move the cursor. For now, the list below.</div>
+    <div class="zh">未來更新會加入<b>聽診地圖</b>：把案例分佈在一張示意人體圖上，隨著游標移動逐步顯示。目前先用列表呈現。</div>
   </div>
 
-  <!-- CASE 01 -->
   <article class="case-major">
     <div class="tab mono">CASE 01</div>
     <div class="inner">
-      <h2>AI-powered Financial Compliance Auditor</h2>
-      <div class="role mono">Role: AI Product Manager · Personal prototype · In development (2026)</div>
-
-      <p><b>The problem.</b> Even in mid-sized financial and property-management firms, compliance review still runs on paper. Vouchers, purchase requisitions, invoices, bank slips, and approval forms are physically stapled together, cross-checked by eye, and annotated with sticky notes. Traditional OCR fails on stamped or handwritten regions; account codes are inconsistent across sources; split reimbursements (e.g. two employees' travel expenses paid asymmetrically but summing to the correct total) break rule-based reconciliation engines entirely.</p>
-
-      <div class="sub mono">Design</div>
-      <p>A three-stage agent workflow: (1) multi-modal parsing extracts fields and stamps them with confidence scores; (2) a fuzzy-matching layer combines semantic embedding search (for account-code aliases) with a deterministic Python solver (for split-and-merge arithmetic); (3) a compliance-review agent generates <em>virtual sticky notes</em> — machine-authored annotations that mirror what a human auditor would handwrite, waiting for a one-click confirmation instead of silent auto-approval.</p>
-
-      <div class="sub mono">Why this shape, not another</div>
+      <h2><span class="en">AI-powered Financial Compliance Auditor</span><span class="zh">AI 財務合規審查系統</span></h2>
+      <div class="role mono"><span class="en">Role: AI Product Manager · Personal prototype · In development (2026)</span><span class="zh">角色：AI 產品經理 · 個人原型 · 開發中（2026）</span></div>
+      <p class="en"><b>The problem.</b> Even in mid-sized financial and property-management firms, compliance review still runs on paper. Vouchers, purchase requisitions, invoices, bank slips, and approval forms are physically stapled together, cross-checked by eye, and annotated with sticky notes. Traditional OCR fails on stamped or handwritten regions; account codes are inconsistent across sources; split reimbursements break rule-based reconciliation engines entirely.</p>
+      <p class="zh"><b>問題所在。</b>即使在中型金融和物業管理公司，合規審查仍然跑在紙本上。憑證、請購單、發票、銀行單據和審批表被實體釘在一起，靠眼睛交叉核對，然後貼上便利貼備注。傳統 OCR 在加蓋印章或手寫區域會失效；會計科目代碼在不同來源之間不一致；差額分攤的報銷直接讓規則引擎報錯。</p>
+      <div class="sub mono"><span class="en">Design</span><span class="zh">設計思路</span></div>
+      <p class="en">A three-stage agent workflow: (1) multi-modal parsing extracts fields and stamps them with confidence scores; (2) a fuzzy-matching layer combines semantic embedding search with a deterministic Python solver for split-and-merge arithmetic; (3) a compliance-review agent generates <em>virtual sticky notes</em> — machine-authored annotations waiting for a one-click human confirmation.</p>
+      <p class="zh">三階段 agent 工作流：(1) 多模態解析提取欄位並標記置信分數；(2) 模糊匹配層結合語義嵌入搜索和確定性 Python 求解器處理差額分攤的計算；(3) 合規審查 agent 生成<em>虛擬便利貼</em>——機器撰寫的標注，等待一鍵人工確認。</p>
+      <div class="sub mono"><span class="en">Why this shape</span><span class="zh">為什麼這樣設計</span></div>
       <ul>
-        <li><b>Anti-hallucination on numbers.</b> LLMs do arithmetic. The prototype does not let them. All numeric matching runs through a deterministic solver; the LLM only handles language and layout.</li>
-        <li><b>Human-in-the-loop by default.</b> Confidence below threshold triggers a highlighted review, never a silent pass. Compliance is a domain where "quiet failures" are the failures.</li>
-        <li><b>Cold-start realistic.</b> A separate data-cleaning agent normalises the messy Excel history that almost every early-stage firm actually has, before anything else runs.</li>
+        <li class="en"><b>Anti-hallucination on numbers.</b> All numeric matching runs through a deterministic solver; the LLM only handles language and layout.</li>
+        <li class="zh"><b>數字防幻覺。</b>所有數字匹配通過確定性求解器處理；LLM 只負責語言和版面。</li>
+        <li class="en"><b>Human-in-the-loop by default.</b> Confidence below threshold triggers a highlighted review, never a silent pass.</li>
+        <li class="zh"><b>預設人工在環。</b>置信度低於閾值會觸發高亮複核，永遠不會靜默通過。</li>
       </ul>
-
-      <div class="sub mono">Where it came from</div>
-      <p>The concept crystallised during my compliance internship at Huafu International Financial Holdings and my accounting internship at Sheraton Shanghai Jiading. I kept noticing the same shape of problem across contexts: the auditor's real work isn't judgement — it's the mechanical assembly of the evidence needed for judgement.</p>
+      <div class="sub mono"><span class="en">Where it came from</span><span class="zh">靈感來源</span></div>
+      <p class="en">The concept crystallised during my compliance internship at Huafu International Financial Holdings and my accounting internship at Sheraton Shanghai Jiading. I kept noticing the same shape of problem: the auditor's real work isn't judgement — it's the mechanical assembly of the evidence needed for judgement.</p>
+      <p class="zh">這個概念在華富國際金融控股的合規實習和喜來登上海嘉定酒店的財務實習中逐漸成形。我一直注意到同樣形狀的問題：審計師真正的工作不是判斷本身——而是為判斷收集證據的那個機械過程。</p>
     </div>
     <div class="meta mono">
       <span>Stack: Python · OCR · RAG · LLM orchestration</span>
-      <span class="status">STATUS: Prototype in progress</span>
+      <span class="status"><span class="en">STATUS: Prototype in progress</span><span class="zh">狀態：原型開發中</span></span>
     </div>
   </article>
 
-  <!-- CASE 02 -->
   <article class="case-major">
     <div class="tab mono">CASE 02</div>
     <div class="inner">
-      <h2>Field Observation Report: Social Interaction Patterns</h2>
-      <div class="role mono">Role: Observer &amp; Analyst · Personal research · Documented (June 2026)</div>
-
-      <p><b>The setting.</b> A late-night social venue. A stranger initiated contact and, over the following two hours, deployed a sequence of persuasion tactics: a purity narrative about a chaste prior relationship, appeals to feminist principles, criticism of materialistic marriage customs, and a hypothetical "if you were my wife" framing — before making a physically escalating request shortly before departure. My interest was not in the individual encounter but in the <em>structure</em>: how consistently the tactics escalated, how the earlier statements retroactively looked like scaffolding for the later ones.</p>
-
-      <div class="sub mono">Method</div>
-      <p>Following the encounter, I wrote up the sequence as a structured behavioural log: numbered event codes, timestamps, verbal and non-verbal moves, and a distinction between observed behaviour and observer inference. I coded the pattern using a small ad-hoc taxonomy adapted from the courtship-behaviour literature I'd read during my psychology self-study, and included a confidentiality note about the limits of a single-case observation.</p>
-
-      <div class="sub mono">Why this counts as work</div>
+      <h2><span class="en">Field Observation Report: Social Interaction Patterns</span><span class="zh">田野觀察報告：社交互動行為分析</span></h2>
+      <div class="role mono"><span class="en">Role: Observer &amp; Analyst · Personal research · Documented (June 2026)</span><span class="zh">角色：觀察者與分析者 · 個人研究 · 已記錄（2026年6月）</span></div>
+      <p class="en"><b>The setting.</b> A late-night social venue. A stranger initiated contact and, over two hours, deployed a sequence of persuasion tactics: a purity narrative, appeals to feminist principles, criticism of materialistic customs, and a physically escalating request near departure. My interest was not in the individual encounter but in the <em>structure</em>: how consistently the tactics escalated, how the earlier statements retroactively looked like scaffolding for the later ones.</p>
+      <p class="zh"><b>場景。</b>一個深夜社交場所。一名陌生人主動搭訕，在兩小時內部署了一系列說服策略：純愛敘事、訴諸女權主義、批評物質化習俗，以及在離開前的肢體升級請求。我感興趣的不是這次個別相遇，而是它的<em>結構</em>：策略升級的一致性，以及前面的話語事後看起來像是為後來做的鋪墊。</p>
+      <div class="sub mono"><span class="en">Method</span><span class="zh">方法</span></div>
+      <p class="en">Following the encounter, I wrote up the sequence as a structured behavioural log: numbered event codes, timestamps, verbal and non-verbal moves, and a clear distinction between observed behaviour and observer inference.</p>
+      <p class="zh">相遇結束後，我把整個過程整理成結構化行為記錄：編號的事件代碼、時間戳、語言和非語言動作，以及對觀察行為和觀察者推斷的明確區分。</p>
+      <div class="sub mono"><span class="en">Why this counts as work</span><span class="zh">為什麼這算是作品</span></div>
       <ul>
-        <li><b>Discomfort as data.</b> The impulse to react emotionally is real; the value is in converting it into something structured that someone else could read, disagree with, and interrogate.</li>
-        <li><b>Method transfer.</b> The same taxonomy-and-annotation reflex is what I use in compliance work. The medium is different; the discipline is identical.</li>
-        <li><b>Honest scope.</b> The report explicitly states its evidentiary limits — one case is not a pattern; a suspicious sequence is not a proof of intent. That kind of hedging is what makes a case study useful rather than performative.</li>
+        <li class="en"><b>Discomfort as data.</b> The impulse to react emotionally is real; the value is in converting it into something structured that someone else could read and interrogate.</li>
+        <li class="zh"><b>不適感作為數據。</b>情緒反應的衝動是真實的；價值在於把它轉化成別人可以閱讀和質疑的結構化內容。</li>
+        <li class="en"><b>Method transfer.</b> The same taxonomy-and-annotation reflex is what I use in compliance work. The medium is different; the discipline is identical.</li>
+        <li class="zh"><b>方法遷移。</b>這套分類和標注的反射動作，正是我在合規工作中使用的。媒介不同，紀律相同。</li>
       </ul>
     </div>
     <div class="meta mono">
-      <span>Format: Structured behavioural log · Anonymised</span>
-      <span class="status">STATUS: Documented</span>
+      <span><span class="en">Format: Structured behavioural log · Anonymised</span><span class="zh">格式：結構化行為記錄 · 已匿名</span></span>
+      <span class="status"><span class="en">STATUS: Documented</span><span class="zh">狀態：已記錄</span></span>
     </div>
   </article>
 
-  <!-- Selected internship cases -->
-  <div class="section-label mono">Other selected cases — internships &amp; academic projects</div>
-
+  <div class="section-label mono"><span class="en">Other selected cases</span><span class="zh">其他精選案例</span></div>
   <div class="cases-mini">
     <div class="mini-card">
-      <div class="role mono">Case 03 — Compliance Internship</div>
-      <h3>Huafu International Financial Holdings</h3>
-      <p>SFC WINGS filings, AML self-assessment, Enhanced Due Diligence on a PEP exposure, trilingual tape audits during IPO windows.</p>
+      <div class="role mono">Case 03 — <span class="en">Compliance Internship</span><span class="zh">合規實習</span></div>
+      <h3><span class="en">Huafu International Financial Holdings</span><span class="zh">華富國際金融控股</span></h3>
+      <p class="en">SFC WINGS filings, AML self-assessment, Enhanced Due Diligence on a PEP exposure, trilingual tape audits during IPO windows.</p>
+      <p class="zh">SFC WINGS 申報、AML 自查、高風險 PEP 持倉的強化盡職調查、IPO 期間三語錄音審查。</p>
       <div class="yr mono">HK · Jun–Jul 2026</div>
     </div>
     <div class="mini-card">
-      <div class="role mono">Case 04 — Finance Internship</div>
+      <div class="role mono">Case 04 — <span class="en">Finance Internship</span><span class="zh">財務實習</span></div>
       <h3>Sheraton Shanghai Jiading (Marriott)</h3>
-      <p>Built a Python + SQL reconciliation script across F&amp;B and room-revenue systems. ~30% time saved; 2 posting discrepancies flagged.</p>
+      <p class="en">Built a Python + SQL reconciliation script across F&amp;B and room-revenue systems. ~30% time saved; 2 posting discrepancies flagged.</p>
+      <p class="zh">建立 Python + SQL 對帳腳本，跨餐飲和客房收入系統。節省約 30% 時間，發現 2 筆過帳差異。</p>
       <div class="yr mono">Shanghai · Jul–Aug 2025</div>
     </div>
     <div class="mini-card">
-      <div class="role mono">Case 05 — Trading Trainee</div>
+      <div class="role mono">Case 05 — <span class="en">Trading Trainee</span><span class="zh">交易員實習</span></div>
       <h3>D+A Strategies</h3>
-      <p>Global equities and FX simulation; six trading modules and General Trading Certification; weekly macro and fundamental notes.</p>
+      <p class="en">Global equities and FX simulation; six trading modules; weekly macro and fundamental research notes.</p>
+      <p class="zh">全球股票和外匯模擬交易；六個交易模組；每週宏觀和基本面研究筆記。</p>
       <div class="yr mono">HK · Mar 2026–present</div>
     </div>
     <div class="mini-card">
-      <div class="role mono">Case 06 — Group Project</div>
-      <h3>HSBC Equity Research &amp; Valuation</h3>
-      <p>CAPM-based 9.3% expected return, interest-rate sensitivity showing ~USD 1.2bn NII reduction under a 100bp cut, bear/base scenario stress test.</p>
+      <div class="role mono">Case 06 — <span class="en">Group Project</span><span class="zh">小組專案</span></div>
+      <h3><span class="en">HSBC Equity Research &amp; Valuation</span><span class="zh">匯豐銀行股票研究與估值</span></h3>
+      <p class="en">CAPM-based 9.3% expected return, interest-rate sensitivity showing ~USD 1.2bn NII reduction under a 100bp cut, bear/base scenario stress test.</p>
+      <p class="zh">CAPM 預期回報 9.3%，利率敏感性分析顯示降息 100bp 下 NII 減少約 12 億美元，熊市/基準情境壓力測試。</p>
       <div class="yr mono">HKMU · Investment Management</div>
     </div>
   </div>
 
   <footer>
-    <div class="mono">6 CASES ON RECORD · MORE FORTHCOMING</div>
-    <div><a href="contact.html" class="mono" style="color:var(--text); border-bottom:1px solid var(--accent); text-decoration:none;">Discuss a case →</a></div>
+    <div class="mono"><span class="en">6 CASES ON RECORD · MORE FORTHCOMING</span><span class="zh">6 個案例已記錄 · 持續更新中</span></div>
+    <div><a href="contact.html" class="mono" style="color:var(--text);border-bottom:1px solid var(--accent);text-decoration:none;"><span class="en">Discuss a case →</span><span class="zh">討論其中一個案例 →</span></a></div>
   </footer>
-
 </div>
+
+<script>
+function setLang(lang){
+  document.documentElement.lang = lang;
+  document.getElementById('btnEn').classList.toggle('active', lang==='en');
+  document.getElementById('btnZh').classList.toggle('active', lang==='zh');
+}
+</script>
 </body>
 </html>
