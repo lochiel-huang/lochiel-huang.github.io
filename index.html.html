@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)file:///C:/Users/xiaor/Downloads/homepage-preview.html -->
+<html lang="en" data-theme="blue" class="awake"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lochiel Huang — Case File</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./homepage_files/css2" rel="stylesheet">
+<style>
+  :root[data-theme="white"]{
+    --bg:#FFFFFF; --surface:#F7F7F5; --text:#1A1A18; --text-2:#5C5C58;
+    --border:#2C2C2A; --accent:#B3312C; --accent-soft:#F3DEDB;
+  }
+  :root[data-theme="ivory"]{
+    --bg:#EFE9D8; --surface:#F7F3E7; --text:#3A342A; --text-2:#6B6152;
+    --border:#4A4436; --accent:#9E2B25; --accent-soft:#E8D2CE;
+  }
+  :root[data-theme="blue"]{
+    --bg:#EDF1F3; --surface:#FFFFFF; --text:#1E2A32; --text-2:#51636E;
+    --border:#3D4F5C; --accent:#B3312C; --accent-soft:#F3DEDB;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:'Newsreader', serif;
+    transition:background .3s, color .3s;
+    padding-bottom:4rem;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em;}
+  .signature{font-family:'Caveat', cursive;}
+
+  .theme-switch{
+    position:fixed; top:16px; right:16px; z-index:50;
+    display:flex; gap:6px; background:var(--surface);
+    border:1px solid var(--border); border-radius:20px; padding:5px;
+  }
+  .theme-switch button{
+    width:26px; height:26px; border-radius:50%; border:1px solid var(--border);
+    cursor:pointer; padding:0;
+  }
+  .theme-switch button[data-t="white"]{background:#FFFFFF;}
+  .theme-switch button[data-t="ivory"]{background:#EFE9D8;}
+  .theme-switch button[data-t="blue"]{background:#EDF1F3;}
+  .theme-switch button.active{outline:2px solid var(--accent); outline-offset:2px;}
+
+  .wrap{max-width:900px; margin:0 auto; padding:0 24px;}
+
+  nav{border-bottom:1px solid var(--border); padding:16px 0;}
+  nav .wrap{display:flex; justify-content:space-between; align-items:center;}
+  nav .brand{font-size:13px;}
+  nav .links{display:flex; gap:22px; font-size:13px;}
+  nav a{color:var(--text-2); text-decoration:none;}
+  nav a.current{color:var(--accent); border-bottom:1px solid var(--accent); padding-bottom:2px;}
+
+  .chart-bar{
+    border-bottom:1px solid var(--border);
+    padding:14px 0;
+  }
+  .chart-bar .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;}
+  .chart-bar .field{font-size:11px; text-transform:uppercase; color:var(--text-2);}
+  .chart-bar .field b{color:var(--text); font-weight:500;}
+
+  .hero{padding:64px 0 40px;}
+  .hero .eyebrow{
+    font-size:12px; color:var(--accent); margin-bottom:14px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .hero .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--accent); animation:pulse-dot 1.6s infinite;}
+  @keyframes pulse-dot{0%,100%{opacity:1;} 50%{opacity:.3;}}
+  .hero h1{font-size:52px; font-weight:600; line-height:1.15; letter-spacing:-0.01em;}
+  .hero h1 em{font-style:italic; color:var(--accent); font-weight:500;}
+  .hero p.tagline{font-size:18px; color:var(--text-2); margin-top:16px; max-width:560px; line-height:1.6;}
+
+  .pulse-wrap{margin:36px 0; padding:18px 0;}
+  .pulse-wrap svg{width:100%; height:60px; display:block;}
+  #flatPath{fill:none; stroke:var(--accent); stroke-width:1.6;}
+  #beatPath{fill:none; stroke:var(--accent); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round;
+    stroke-dasharray:600; stroke-dashoffset:600; opacity:0;}
+  html.beating #flatPath{opacity:0;}
+  html.beating #beatPath{opacity:1; animation:draw 1s ease-in-out infinite;}
+  html.awake #flatPath{opacity:0;}
+  html.awake #beatPath{opacity:1; animation:draw 3.2s ease-in-out infinite;}
+  @keyframes draw{0%{stroke-dashoffset:600;} 45%{stroke-dashoffset:0;} 100%{stroke-dashoffset:-600;}}
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .7s ease, transform .7s ease;}
+  html.awake .reveal{opacity:1; transform:translateY(0);}
+
+  .section-label{font-size:12px; color:var(--text-2); margin-bottom:18px; display:flex; align-items:center; gap:8px;}
+  .section-label svg{width:26px; height:26px; stroke:var(--text); flex-shrink:0;}
+  .section-label span{white-space:nowrap;}
+  .section-label::after{content:''; flex:1; height:1px; background:var(--border);}
+
+  .vitals{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-bottom:56px;}
+  .vital{background:var(--surface); padding:16px;}
+  .vital .k{font-size:10px; color:var(--text-2); text-transform:uppercase; letter-spacing:0.05em;}
+  .vital .v{font-size:18px; font-weight:500; margin-top:6px;}
+
+  .cases{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px;}
+  .case-card{
+    border:1px solid var(--border); background:var(--surface);
+    padding:20px; position:relative;
+  }
+  .case-card .tab{
+    position:absolute; top:-1px; left:20px; background:var(--accent-soft);
+    color:var(--accent); font-size:11px; padding:3px 10px; border:1px solid var(--border); border-top:none;
+  }
+  .case-card h3{font-size:18px; font-weight:600; margin:16px 0 8px; line-height:1.3;}
+  .case-card p{font-size:14px; color:var(--text-2); line-height:1.6;}
+  .case-card .status{margin-top:14px; font-size:11px; color:var(--text-2);}
+
+  .about-teaser{display:flex; gap:28px; align-items:flex-start; margin:56px 0; flex-wrap:wrap;}
+  .about-teaser .quote{flex:1; min-width:260px; font-size:19px; line-height:1.7; font-style:italic;}
+  .about-teaser .sign{margin-top:14px; font-size:26px; color:var(--accent);}
+  .about-teaser .facts{width:220px; font-size:13px; color:var(--text-2); line-height:2;}
+  .about-teaser .facts b{color:var(--text); font-weight:500;}
+
+  .footer{border-top:1px solid var(--border); padding-top:24px; display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px;}
+  .footer .left{font-size:12px; color:var(--text-2);}
+  .footer a{color:var(--text); text-decoration:none; border-bottom:1px solid var(--accent);}
+  .footer .links{display:flex; gap:18px; font-size:14px;}
+
+  @media (max-width:640px){
+    .hero h1{font-size:36px;}
+    .vitals{grid-template-columns:repeat(2,1fr);}
+    .cases{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="theme-switch">
+  <button data-t="white" title="Clinical white"></button>
+  <button data-t="ivory" title="Paper ivory"></button>
+  <button data-t="blue" class="active" title="Monitor blue"></button>
+</div>
+
+<nav>
+  <div class="wrap mono">
+    <div class="brand">CASE NO. 2026-0710</div>
+    <div class="links">
+      <a href="file:///C:/Users/xiaor/Downloads/homepage-preview.html" class="current">Chart</a>
+      <a href="file:///C:/Users/xiaor/Downloads/about.html">History</a>
+      <a href="file:///C:/Users/xiaor/Downloads/portfolio.html">Case Log</a>
+      <a href="file:///C:/Users/xiaor/Downloads/contact.html">Referral</a>
+    </div>
+  </div>
+</nav>
+
+<div class="chart-bar">
+  <div class="wrap">
+    <div class="field mono">STATUS: <b style="color:var(--accent)">ACTIVE</b></div>
+    <div class="field">Applying for MSc · Open to opportunities</div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow mono reveal"><span class="dot"></span>PATIENT CHART — Overview</div>
+    <h1 class="reveal">Lochiel Huang<br>a case <em>still under observation</em></h1>
+    <p class="tagline reveal">Year 3 Finance &amp; FinTech student at HKMU. Chief complaint: an unreasonable curiosity about how systems actually behave — markets, minds, machines, and the humans who move between them.</p>
+
+    <div class="pulse-wrap">
+      <svg viewBox="0 0 600 60" preserveAspectRatio="none">
+        <path id="flatPath" d="M0,30 L600,30"></path>
+        <path id="beatPath" d="M0,30 L120,30 L140,10 L155,50 L170,30 L200,30 L215,20 L230,30 L280,30 L300,8 L318,52 L335,30 L600,30"></path>
+      </svg>
+    </div>
+
+    <div class="reveal">
+    <div class="section-label mono">
+      <svg viewBox="0 0 28 28" fill="none" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="22" height="15.5" rx="2"></rect><rect x="5.3" y="6.8" width="17.4" height="7.5" rx="0.6" opacity="0.45"></rect><path d="M10.5 24.5h7"></path><path d="M14 20v4.5"></path><path d="M5.3 10.5h2.6l1.3-3 1.8 6.5 1.3-4.5 0.8 1.3h5.7"></path><circle cx="20" cy="8.3" r="0.65" fill="var(--text)" stroke="none"></circle></svg>
+      <span>VITALS</span>
+    </div>
+    <div class="vitals">
+      <div class="vital"><div class="k mono">GPA (Yr 3)</div><div class="v">3.74 / 4.3</div></div>
+      <div class="vital"><div class="k mono">IELTS</div><div class="v">7.0 (C1)</div></div>
+      <div class="vital"><div class="k mono">Languages</div><div class="v">EN · 中 · 粵</div></div>
+      <div class="vital"><div class="k mono">Focus</div><div class="v">AI × Compliance</div></div>
+    </div>
+
+    <div class="section-label mono">
+      <svg viewBox="0 0 28 28" fill="none" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="15.5" height="21" rx="1.6"></rect><rect x="9.3" y="1.8" width="6.9" height="4.2" rx="1.6"></rect><path d="M8 11h9.5"></path><path d="M8 14.8h9.5"></path><path d="M8 18.6h6.5"></path><path d="M18.5 17l5.3-5.3 2.3 2.3-5.3 5.3-2.9 0.6z"></path><path d="M22 12.4l2.3 2.3"></path></svg>
+      <span>CASE LOG — Selected</span>
+    </div>
+    <div style="margin:-8px 0 18px; font-size:13px;"><a href="file:///C:/Users/xiaor/Downloads/portfolio.html" class="mono" style="color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent);">View full case log →</a></div>
+    <div class="cases">
+      <div class="case-card">
+        <div class="tab mono">CASE 01</div>
+        <h3>AI-powered Financial Compliance Auditor</h3>
+        <p>A RegTech prototype tackling the "sticky-note wall" of manual invoice–voucher–bank-slip reconciliation. Multi-modal OCR + semantic matching + human-in-the-loop review.</p>
+        <div class="status mono">STATUS: In development</div>
+      </div>
+      <div class="case-card">
+        <div class="tab mono">CASE 02</div>
+        <h3>Field Observation Report: Social Interaction Patterns</h3>
+        <p>An ethnographic-style behavioural log documenting a stranger's escalating persuasion tactics over a two-hour encounter. Anonymised, coded, and structured as a case study.</p>
+        <div class="status mono">STATUS: Documented</div>
+      </div>
+    </div>
+
+    <div class="section-label mono">CLINICAL NOTES</div>
+    <div class="about-teaser">
+      <div class="quote">
+        "The number on the page is never the whole story. I care more about what it leaves out — the hesitation, the workaround, the sticky note nobody scanned."
+        <div class="sign signature">— Lochiel</div>
+      </div>
+      <div class="facts mono">
+        <div><b>Major</b> Finance &amp; FinTech</div>
+        <div><b>Year</b> 3 of 4 (HKMU)</div>
+        <div><b>Next</b> MSc in AI in Business</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="left mono">END OF CHART — Continue to History →</div>
+      <div class="links">
+        <a href="file:///C:/Users/xiaor/Downloads/contact.html">Email</a>
+        <a href="file:///C:/Users/xiaor/Downloads/contact.html">LinkedIn</a>
+        <a href="file:///C:/Users/xiaor/Downloads/about.html">History</a>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.documentElement.classList.remove('awake');
+const beatPath = document.getElementById('beatPath');
+let awakened = false, beating = false, beatCount = 0;
+
+function onBeatIteration(){
+  beatCount++;
+  if(beatCount >= 3){
+    beatPath.removeEventListener('animationiteration', onBeatIteration);
+    document.documentElement.classList.remove('beating');
+    document.documentElement.classList.add('awake');
+    awakened = true;
+  }
+}
+function startBeating(){
+  if(beating || awakened) return;
+  beating = true;
+  document.documentElement.classList.add('beating');
+  beatPath.addEventListener('animationiteration', onBeatIteration);
+}
+window.addEventListener('mousemove', startBeating, {once:true});
+window.addEventListener('touchstart', startBeating, {once:true});
+
+document.querySelectorAll('.theme-switch button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.documentElement.setAttribute('data-theme', btn.dataset.t);
+    document.querySelectorAll('.theme-switch button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>
+
+
+
+</body></html>
