@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0056)file:///C:/Users/xiaor/Downloads/homepage-preview_7.html -->
+<!-- saved from url=(0056)file:///C:/Users/xiaor/Downloads/homepage-preview_8.html -->
 <html lang="en" data-theme="blue" class="awake"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <link rel="icon" type="image/svg+xml" href="file:///C:/Users/xiaor/Downloads/favicon.svg">
@@ -135,10 +135,10 @@
   <div class="wrap mono">
     <div class="brand">CASE NO. 2026-0710</div>
     <div class="links">
-      <a href="file:///C:/Users/xiaor/Downloads/index.html" class="current"><span class="en">Chart</span><span class="zh">概覽</span></a>
-      <a href="file:///C:/Users/xiaor/Downloads/about.html"><span class="en">History</span><span class="zh">病史</span></a>
-      <a href="file:///C:/Users/xiaor/Downloads/portfolio.html"><span class="en">Case Log</span><span class="zh">案例</span></a>
-      <a href="file:///C:/Users/xiaor/Downloads/contact.html"><span class="en">Referral</span><span class="zh">聯絡</span></a>
+      <a href="file:///C:/Users/xiaor/Downloads/index.html" class="current" data-en="Chart" data-zh="概覽">Chart</a>
+      <a href="file:///C:/Users/xiaor/Downloads/about.html" data-en="History" data-zh="病史">History</a>
+      <a href="file:///C:/Users/xiaor/Downloads/portfolio.html" data-en="Case Log" data-zh="案例">Case Log</a>
+      <a href="file:///C:/Users/xiaor/Downloads/contact.html" data-en="Referral" data-zh="聯絡">Referral</a>
     </div>
   </div>
 </nav>
@@ -232,6 +232,9 @@ function setLang(lang){
   document.documentElement.lang = lang;
   document.getElementById('btnEn').classList.toggle('active', lang==='en');
   document.getElementById('btnZh').classList.toggle('active', lang==='zh');
+  document.querySelectorAll('a[data-en]').forEach(a=>{
+    a.textContent = lang==='zh' ? a.dataset.zh : a.dataset.en;
+  });
 }
 
 document.documentElement.classList.remove('awake');
