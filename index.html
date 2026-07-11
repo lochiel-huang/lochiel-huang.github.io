@@ -230,12 +230,17 @@
 <script>
 function setLang(lang){
   document.documentElement.lang = lang;
+  localStorage.setItem('siteLang', lang);
   document.getElementById('btnEn').classList.toggle('active', lang==='en');
   document.getElementById('btnZh').classList.toggle('active', lang==='zh');
   document.querySelectorAll('a[data-en]').forEach(a=>{
     a.textContent = lang==='zh' ? a.dataset.zh : a.dataset.en;
   });
 }
+(function(){
+  const saved = localStorage.getItem('siteLang');
+  if(saved && saved !== 'en') setLang(saved);
+})();
 
 document.documentElement.classList.remove('awake');
 const beatPath = document.getElementById('beatPath');
