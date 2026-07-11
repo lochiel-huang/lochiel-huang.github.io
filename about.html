@@ -50,6 +50,42 @@
   .zh{display:none;}
   html[lang="zh"] .en{display:none;}
   html[lang="zh"] .zh{display:revert;}
+
+  /* 隱藏彩蛋 */
+  .egg{
+    position:fixed; width:34px; height:34px; z-index:40;
+    cursor:pointer; opacity:0.35; transition:opacity .25s, transform .25s;
+  }
+  .egg:hover{opacity:1; transform:scale(1.15);}
+  .egg svg{width:100%; height:100%; stroke:var(--text); fill:none;
+    stroke-width:1.2; stroke-linecap:round; stroke-linejoin:round;}
+  .egg .tip{
+    position:absolute; background:var(--surface); border:1px solid var(--border);
+    padding:14px 18px; width:280px; font-family:'Newsreader',serif; font-size:14px;
+    line-height:1.6; color:var(--text); border-left:3px solid var(--accent);
+    opacity:0; pointer-events:none; transition:opacity .25s;
+    box-shadow:0 6px 24px rgba(0,0,0,.08);
+  }
+  .egg:hover .tip{opacity:1;}
+  .egg .tip .label{font-family:'IBM Plex Mono',monospace; font-size:10px;
+    color:var(--accent); letter-spacing:0.08em; margin-bottom:6px; text-transform:uppercase;}
+
+  /* 各自位置 */
+  #egg-clip{top:100px; right:20px;}
+  #egg-clip .tip{top:0; right:44px;}
+  #egg-stamp{top:38%; right:20px;}
+  #egg-stamp .tip{top:0; right:44px;}
+  #egg-syringe{top:55%; left:20px;}
+  #egg-syringe .tip{top:0; left:44px;}
+  #egg-steth{top:72%; right:20px;}
+  #egg-steth .tip{top:0; right:44px;}
+  #egg-iv{top:88%; left:20px;}
+  #egg-iv .tip{bottom:0; left:44px;}
+
+  @media (max-width:900px){
+    .egg{display:none;}
+  }
+
 </style>
 </head>
 <body>
@@ -161,5 +197,52 @@ function setLang(lang){
   if(saved && saved !== 'en') setLang(saved);
 })();
 </script>
+
+<!-- 隱藏彩蛋 -->
+<div class="egg" id="egg-clip">
+  <svg viewBox="0 0 24 24"><path d="M15 4v13a3 3 0 0 1-6 0V6a2 2 0 0 1 4 0v11"/></svg>
+  <div class="tip">
+    <div class="label"><span class="en">Off-record habit</span><span class="zh">病歷外的小習慣</span></div>
+    <span class="en">I read strangers for a living — not literally. On the subway, in cafés, at bars: I watch how people move, how they hesitate, and try to guess what they actually want (not what they say they want). I'm right more often than statistics should allow.</span>
+    <span class="zh">我喜歡觀察別人，從對方的言行舉止推測背後真正的動機。地鐵、咖啡廳、酒吧都行。猜中率比機率該有的高。</span>
+  </div>
+</div>
+
+<div class="egg" id="egg-stamp">
+  <svg viewBox="0 0 24 24"><path d="M6 21h12"/><path d="M8 18h8"/><path d="M9 14l-1-6a4 4 0 0 1 8 0l-1 6"/><path d="M8 18v-4"/><path d="M16 18v-4"/></svg>
+  <div class="tip">
+    <div class="label"><span class="en">Self-assessment (approved)</span><span class="zh">自我評估（已核准）</span></div>
+    <span class="en">Only birds of a feather get to stand next to me. I know that shrinks the pool. Fine. Every time someone asks whether I have a partner, part of me wonders why we've collectively agreed that finding one quickly is a virtue. I've met one before. I know the difference.</span>
+    <span class="zh">只有同類才有資格站在我身邊。我知道這樣可選的人少之又少，寧缺毋濫。每次別人問我有沒有伴侶的時候，我都覺得這個問題有點浮躁——我曾經遇到過，所以我知道差別在哪。</span>
+  </div>
+</div>
+
+<div class="egg" id="egg-syringe">
+  <svg viewBox="0 0 24 24"><path d="M17 3l4 4"/><path d="M15 5l4 4"/><path d="M5 19l10-10 4 4L9 23l-4-4z" transform="translate(-1 -3)"/><path d="M3 21l3-3"/><path d="M13 7l4 4"/></svg>
+  <div class="tip">
+    <div class="label"><span class="en">What I inject when things get hard</span><span class="zh">困難時注射的東西</span></div>
+    <span class="en">Nothing is permanent — including the hard parts. I don't want to miss chances, and I don't want to regret. If the risk is one I can carry, I'd rather try and be wrong than sit still.</span>
+    <span class="zh">沒有什麼是永遠的，困難也是。我不想錯過任何機會，我不想後悔。在風險可控的情況下，我寧願出錯也要嘗試。</span>
+  </div>
+</div>
+
+<div class="egg" id="egg-steth">
+  <svg viewBox="0 0 24 24"><path d="M6 3v6a4 4 0 0 0 8 0V3"/><path d="M18 9v3a6 6 0 0 1-12 0"/><circle cx="18" cy="6" r="2.4"/></svg>
+  <div class="tip">
+    <div class="label"><span class="en">What I'm listening for</span><span class="zh">我在聽的聲音</span></div>
+    <span class="en">When the next financial crisis hits — and it will — what happens if AI is baked into the system by then? If the models tank alongside the markets, or worse, cause the tanking, how do the humans and institutions who quietly outsourced their judgement to AI recover?</span>
+    <span class="zh">下一次經濟危機來臨的時候，會發生什麼？如果 AI 那時已經深度介入金融系統，模型跟著崩潰，甚至是模型引發崩潰——那些把判斷力悄悄外包給 AI 的人和機構，會怎麼修復？</span>
+  </div>
+</div>
+
+<div class="egg" id="egg-iv">
+  <svg viewBox="0 0 24 24"><path d="M10 2h4"/><path d="M12 2v4"/><rect x="8" y="6" width="8" height="10" rx="1"/><path d="M12 16v4"/><path d="M10 22h4"/><path d="M10 11h4"/></svg>
+  <div class="tip">
+    <div class="label"><span class="en">Currently on IV drip</span><span class="zh">持續輸注中</span></div>
+    <span class="en">AI coding, agentic workflows, generative tools — I use them daily and they've quietly rewired how I think about work. Also psychology, still. And people-watching, everywhere: subway, mall, bar street. I stand there looking a little out of place, but watching how strangers react to their own days is how I stay lucid.</span>
+    <span class="zh">AI coding、agent 工作流、生成式工具——每天都在用，也悄悄改變了我思考工作的方式。心理學也還在。還有觀察人，到處都觀察：地鐵、商場、酒吧街。我站在那可能有點突兀、有點不合群，但看不同人怎麼反應，是我保持清醒的方式。</span>
+  </div>
+</div>
+
 </body>
 </html>
