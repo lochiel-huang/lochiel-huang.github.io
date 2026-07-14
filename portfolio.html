@@ -93,27 +93,24 @@
   <article class="case-major">
     <div class="tab mono">CASE 01</div>
     <div class="inner">
-      <h2><span class="en">AI-powered Financial Compliance Auditor</span><span class="zh">AI 財務合規審查系統</span></h2>
-      <div class="role mono"><span class="en">Role: AI Product Manager · Personal prototype · In development (2026)</span><span class="zh">角色：AI 產品經理 · 個人原型 · 開發中（2026）</span></div>
-      <p class="en"><b>The problem.</b> Even in mid-sized financial and property-management firms, compliance review still runs on paper. Vouchers, purchase requisitions, invoices, bank slips, and approval forms are physically stapled together, cross-checked by eye, and annotated with sticky notes. Traditional OCR fails on stamped or handwritten regions; account codes are inconsistent across sources; split reimbursements break rule-based reconciliation engines entirely.</p>
-      <p class="zh"><b>問題所在。</b>即使在中型金融和物業管理公司，合規審查仍然跑在紙本上。憑證、請購單、發票、銀行單據和審批表被實體釘在一起，靠眼睛交叉核對，然後貼上便利貼備注。傳統 OCR 在加蓋印章或手寫區域會失效；會計科目代碼在不同來源之間不一致；差額分攤的報銷直接讓規則引擎報錯。</p>
-      <div class="sub mono"><span class="en">Design</span><span class="zh">設計思路</span></div>
-      <p class="en">A three-stage agent workflow: (1) multi-modal parsing extracts fields and stamps them with confidence scores; (2) a fuzzy-matching layer combines semantic embedding search with a deterministic Python solver for split-and-merge arithmetic; (3) a compliance-review agent generates <em>virtual sticky notes</em> — machine-authored annotations waiting for a one-click human confirmation.</p>
-      <p class="zh">三階段 agent 工作流：(1) 多模態解析提取欄位並標記置信分數；(2) 模糊匹配層結合語義嵌入搜索和確定性 Python 求解器處理差額分攤的計算；(3) 合規審查 agent 生成<em>虛擬便利貼</em>——機器撰寫的標注，等待一鍵人工確認。</p>
-      <div class="sub mono"><span class="en">Why this shape</span><span class="zh">為什麼這樣設計</span></div>
+      <h2><span class="en">audit-compliance-copilot</span><span class="zh">audit-compliance-copilot（審計合規副駕）</span></h2>
+      <div class="role mono"><span class="en">Role: Solo build · Python + Streamlit + DeepSeek · Deployed (2026)</span><span class="zh">角色：獨立開發 · Python + Streamlit + DeepSeek · 已上線（2026）</span></div>
+      <p class="en">A two-layer AI system for accounting voucher anomaly detection. Layer one is a deterministic rule engine that catches structural violations (missing fields, amount mismatches, invalid account codes). Layer two is an LLM judgement layer that reads the surviving vouchers and flags contextual anomalies a rule engine can't see — the kind of thing a human auditor would notice on the second pass.</p>
+      <p class="zh">一個兩層架構的 AI 系統，用來偵測會計憑證的異常。第一層是確定性的規則引擎，抓結構性違規（欄位缺失、金額不符、無效科目代碼）。第二層是 LLM 判斷層，讀通過第一層的憑證，標記規則引擎看不到的上下文異常——那種人類審計師在第二遍會注意到的東西。</p>
+      <div class="sub mono"><span class="en">The three-iteration story</span><span class="zh">三次迭代的故事</span></div>
+      <p class="en">v1 flagged 77% of vouchers as suspicious. Alert fatigue — nobody would use it. v2 tightened the LLM prompt too hard, suppressed everything down to 7%, and started missing real anomalies. v3 rebalanced with explicit reasoning steps and calibrated thresholds; suspicious rate settled at ~30%, with the flagged items actually being worth reviewing. This arc — over-alerting → over-suppression → calibration — is exactly the evaluation-driven iteration mindset I want to work with.</p>
+      <p class="zh">v1 把 77% 的憑證標記為可疑。警報疲勞——沒人會用。v2 把 LLM prompt 收得太緊，全部壓到 7%，開始漏掉真的異常。v3 用明確的推理步驟和校準過的閾值重新平衡；可疑率穩定在約 30%，而且標記出來的都值得看。這個弧線——過度警報 → 過度抑制 → 校準——就是我想做的評估驅動迭代的思路。</p>
+      <div class="sub mono"><span class="en">Design choices worth explaining</span><span class="zh">值得說明的設計選擇</span></div>
       <ul>
-        <li class="en"><b>Anti-hallucination on numbers.</b> All numeric matching runs through a deterministic solver; the LLM only handles language and layout.</li>
-        <li class="zh"><b>數字防幻覺。</b>所有數字匹配通過確定性求解器處理；LLM 只負責語言和版面。</li>
-        <li class="en"><b>Human-in-the-loop by default.</b> Confidence below threshold triggers a highlighted review, never a silent pass.</li>
-        <li class="zh"><b>預設人工在環。</b>置信度低於閾值會觸發高亮複核，永遠不會靜默通過。</li>
+        <li class="en"><b>DeepSeek over Anthropic.</b> Anthropic's API requires payment methods unavailable in Hong Kong. DeepSeek's OpenAI-compatible API resolved this mid-project — a small logistics detail that mattered.</li>
+        <li class="zh"><b>用 DeepSeek 不用 Anthropic。</b>Anthropic API 需要香港沒有的支付方式。DeepSeek 的 OpenAI 相容 API 中途解決了這個問題——一個小的物流細節，但很關鍵。</li>
+        <li class="en"><b>Ground truth is separate.</b> The data generator produces ground truth files decoupled from evaluation, so the rule engine can't accidentally learn the answers.</li>
+        <li class="zh"><b>ground truth 獨立產生。</b>資料產生器將 ground truth 檔案與評估流程分離，避免規則引擎意外「學到」答案。</li>
       </ul>
-      <div class="sub mono"><span class="en">Where it came from</span><span class="zh">靈感來源</span></div>
-      <p class="en">The concept crystallised during my compliance internship at Huafu International Financial Holdings and my accounting internship at Sheraton Shanghai Jiading. I kept noticing the same shape of problem: the auditor's real work isn't judgement — it's the mechanical assembly of the evidence needed for judgement.</p>
-      <p class="zh">這個概念在華富國際金融控股的合規實習和喜來登上海嘉定酒店的財務實習中逐漸成形。我一直注意到同樣形狀的問題：審計師真正的工作不是判斷本身——而是為判斷收集證據的那個機械過程。</p>
     </div>
     <div class="meta mono">
-      <span>Stack: Python · OCR · RAG · LLM orchestration</span>
-      <span class="status"><span class="en">STATUS: Prototype in progress</span><span class="zh">狀態：原型開發中</span></span>
+      <span><a href="https://audit-compliance-copilot-lochiel.streamlit.app" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);"><span class="en">Live demo →</span><span class="zh">試玩 →</span></a>&nbsp;·&nbsp;<a href="https://github.com/lochiel-huang/audit-compliance-copilot" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">GitHub →</a></span>
+      <span class="status"><span class="en">STATUS: Live</span><span class="zh">狀態：已上線</span></span>
     </div>
   </article>
 
